@@ -1,2 +1,2 @@
-# creating a ssh daemon server for python
+# Creating a ssh daemon server for python
 WIP 
