@@ -1,7 +1,7 @@
 from pexpect import pxssh
 #import pdb
 conn = pxssh.pxssh()
-if not conn.login ('192.168.1.10', 'pi', 'raspberry'):
+if not conn.login ('192.168.79.165', 'miaou', 'Zaerty01'):
     print("SSH session failed on login.")
     print(str(conn))
 else:
