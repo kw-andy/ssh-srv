@@ -2,7 +2,7 @@ from pexpect import pxssh
 import getpass
 try:
     s = pxssh.pxssh()
-    hostname = '192.168.79.165'
+    hostname = '192.168.43.163'
     username = 'miaou'
     password = 'Zaerty01'
     s.login(hostname, username, password)
@@ -14,6 +14,11 @@ try:
     print(s.before.decode())
     s.sendline('df')
     s.prompt()
+    print(s.before.decode())
+    # adding a test line for using python within 
+    # pexpect library
+    s.sendline("python3 -c 'print(5+5)'")
+    s.prompt()     
     print(s.before.decode())
     s.logout()
 except pxssh.ExceptionPxssh as e:
