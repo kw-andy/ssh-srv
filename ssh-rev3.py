@@ -1,13 +1,13 @@
 from pexpect import pxssh
-import getpass
+#import getpass
+
+# conn_up is a function for connecting and doing an uptime.
 
 def conn_up():
     try:
-        #ssh_options = {'IdentityAgent': '/home/miaou/priv_keys'}
         s = pxssh.pxssh()
         hostname = '174.138.12.81'
         username = 'andykw'
-        #ssh-key = '/home/miaou/priv_keys'
         s.login(hostname, username,ssh_key='/home/miaou/priv_keys')
         s.sendline('uptime')   # run a command
         s.prompt()             # match the prompt
@@ -16,5 +16,6 @@ def conn_up():
         print("pxssh failed on login.")
         print(e)
 
-conn_up()
+if __name__ == '__main__':
+    conn_up()
 
