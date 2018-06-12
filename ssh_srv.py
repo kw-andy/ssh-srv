@@ -3,17 +3,16 @@ To run this program, the file ``ssh_host_key`` must exist with an SSH
 private key in it to use as a server host key. An SSH host certificate
 can optionally be provided in the file ``ssh_host_key-cert.pub``.
 
-12/06/18
+12/06/18:
 
-Building a ssh server with the library asyncssh
+creating a ssh server with asyncssh
+
 """
 import asyncio, asyncssh, crypt, sys
 
-
 passwords = {'guest': '',                 # guest account with no password
-             'user123': 'ttt'   # password of 'secretpw'
+             'user123': 'Qwerty01'   # password of 'secretpw'
             }
-
 
 def handle_client(process):
     process.stdout.write('Welcome to my SSH server, %s!\n' %
@@ -34,14 +33,14 @@ class MySSHServer(asyncssh.SSHServer):
     def begin_auth(self, username):
         # If the user's password is the empty string, no auth is required
         return passwords.get(username) != ''
-
+"""
     def password_auth_supported(self):
         return True
 
     def validate_password(self, username, password):
         pw = passwords.get(username, '*')
         return crypt.crypt(password, pw) == pw
-
+"""
 async def start_server():
     await asyncssh.create_server(MySSHServer, '', 8022,
                                  server_host_keys=['/home/miaou/priv_keys'],
