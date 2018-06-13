@@ -1,3 +1,10 @@
+# SSH Server
+
+I'm using [asyncssh](http://asyncssh.readthedocs.io/en/latest/) lib to build a ssh server
+
+* ssh_srv.py is the prototype
+
+
 # Creating [bastion host](https://cloudacademy.com/blog/aws-bastion-host-nat-instances-vpc-peering-security/) admin tools
 
 
@@ -9,4 +16,4 @@
 
 * ag is for an interactive session with ssh. It can used any tools that are interactive lile with ftp or sftp
 
-# The aim is to build a bastion host with prerecorder settings 
+# The aim is to build a bastion host with prerecorded settings (WIP)
