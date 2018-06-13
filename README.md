@@ -5,7 +5,7 @@ I'm using [asyncssh](http://asyncssh.readthedocs.io/en/latest/) lib to build a s
 * ssh_srv.py is the prototype
 
 
-# Creating [bastion host](https://cloudacademy.com/blog/aws-bastion-host-nat-instances-vpc-peering-security/) admin tools
+# Also creating [bastion host](https://cloudacademy.com/blog/aws-bastion-host-nat-instances-vpc-peering-security/) admin tools
 
 
 * ssh-rev1.py has been used to familiarize with the pexpect library
