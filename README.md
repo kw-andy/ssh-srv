@@ -1,4 +1,4 @@
-# Creating a bastion host for python
+# Creating [bastion host](https://en.wikipedia.org/wiki/Bastion_host) admin tools
 
 
 * ssh-rev1.py has been used to familiarize with the pexpect library
@@ -7,6 +7,6 @@
 
 * rev3 is to use a RSA key to connect to a distant server
 
-* ag is for an interactive session with ssh but it can be with ftp too
+* ag is for an interactive session with ssh. It can used any tools that are interactive lile with ftp or sftp
 
 # The aim is to build a bastion host with prerecorder settings 
