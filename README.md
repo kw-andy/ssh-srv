@@ -1,4 +1,4 @@
-# Creating [bastion host](https://en.wikipedia.org/wiki/Bastion_host) admin tools
+# Creating [bastion host](https://cloudacademy.com/blog/aws-bastion-host-nat-instances-vpc-peering-security/) admin tools
 
 
 * ssh-rev1.py has been used to familiarize with the pexpect library
