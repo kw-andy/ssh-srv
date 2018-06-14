@@ -11,7 +11,7 @@ creating a ssh server with asyncssh
 import asyncio, asyncssh, crypt, sys
 
 passwords = {'guest': '',                 # guest account with no password
-             'user123': 'Qwerty01'   # password of 'secretpw'
+             'user123': 'uuu'   # password of 'secretpw'
             }
 
 def handle_client(process):
