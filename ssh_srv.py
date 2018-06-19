@@ -45,13 +45,13 @@ class MySSHServer(asyncssh.SSHServer):
     def validate_password(self, username, password):
         pw = passwords.get(username, '*')
         return crypt.crypt(password, pw) == pw
-'''
+
     async def run_client(self):
         async with asyncssh.connect('174.138.12.81', username='andykw', client_keys=['/home/miaou/priv_keys']) as conn:
             result = await conn.run('ls .', check=True)
             print(result.stdout, end='')
 
-'''
+
 async def start_server():
     await asyncssh.create_server(MySSHServer, '', 8022,
                                  server_host_keys=['resources/priv_keys'],
