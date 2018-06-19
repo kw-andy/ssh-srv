@@ -17,12 +17,12 @@ def handle_client(process):
                          process.channel.get_extra_info('username'))
     process.exit(0)
 
-
+''' #commenting that part as it is useless
 async def run_client():
     async with asyncssh.connect('174.138.12.81', username='andykw',client_keys=['resources/priv_keys']) as conn:
         result = await conn.run('ls .', check=True)
         print(result.stdout, end='')
-
+'''
 
 class MySSHServer(asyncssh.SSHServer):
     def connection_made(self, conn):
