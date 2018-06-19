@@ -47,7 +47,7 @@ class MySSHServer(asyncssh.SSHServer):
         return crypt.crypt(password, pw) == pw
 
     async def run_client(self):
-        async with asyncssh.connect('174.138.12.81', username='andykw', client_keys=['/home/miaou/priv_keys']) as conn:
+        async with asyncssh.connect('174.138.12.81', username='andykw', client_keys=['resources/priv_keys']) as conn:
             result = await conn.run('ls .', check=True)
             print(result.stdout, end='')
 
