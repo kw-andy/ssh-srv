@@ -17,12 +17,12 @@ def handle_client(process):
                          process.channel.get_extra_info('username'))
     process.exit(0)
 
-'''
+
 async def run_client():
     async with asyncssh.connect('174.138.12.81', username='andykw',client_keys=['resources/priv_keys']) as conn:
         result = await conn.run('ls .', check=True)
         print(result.stdout, end='')
-'''
+
 
 class MySSHServer(asyncssh.SSHServer):
     def connection_made(self, conn):
@@ -45,16 +45,16 @@ class MySSHServer(asyncssh.SSHServer):
     def validate_password(self, username, password):
         pw = passwords.get(username, '*')
         return crypt.crypt(password, pw) == pw
-
+'''
     async def run_client(self):
-        async with asyncssh.connect('174.138.12.81', username='andykw', client_keys=['resources/priv_keys']) as conn:
+        async with asyncssh.connect('174.138.12.81', username='andykw', client_keys=['/home/miaou/priv_keys']) as conn:
             result = await conn.run('ls .', check=True)
             print(result.stdout, end='')
 
-
+'''
 async def start_server():
     await asyncssh.create_server(MySSHServer, '', 8022,
-                                 server_host_keys=['/home/miaou/priv_keys'],
+                                 server_host_keys=['resources/priv_keys'],
                                  process_factory=handle_client)
 
 loop = asyncio.get_event_loop()
