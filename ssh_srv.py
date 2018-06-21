@@ -15,11 +15,15 @@ passwords = {'guest': '',                 # guest account with no password
 async def handle_client(process):
     process.stdout.write('Welcome to my SSH server, %s!\n' %
                          process.channel.get_extra_info('username'))
-    process.exit(0)
+
 
     async with asyncssh.connect('174.138.12.81', username='andykw', client_keys=['resources/priv_keys']) as conn:
         result = await conn.run('ls .', check=True)
-        print(result.stdout, end='')
+        #print(result.stdout, end='')
+        process.stdout.write(result.stdout, end='')
+        #process.stdout.write(result, end='') # if the cmd above does not run correctly
+
+    process.exit(0)
 
 
 
