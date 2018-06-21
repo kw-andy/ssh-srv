@@ -12,17 +12,16 @@ passwords = {'guest': '',                 # guest account with no password
             }
 
 
-def handle_client(process):
+async def handle_client(process):
     process.stdout.write('Welcome to my SSH server, %s!\n' %
                          process.channel.get_extra_info('username'))
     process.exit(0)
 
-''' #commenting that part as it is useless
-async def run_client():
-    async with asyncssh.connect('174.138.12.81', username='andykw',client_keys=['resources/priv_keys']) as conn:
+    async with asyncssh.connect('174.138.12.81', username='andykw', client_keys=['resources/priv_keys']) as conn:
         result = await conn.run('ls .', check=True)
         print(result.stdout, end='')
-'''
+
+
 
 class MySSHServer(asyncssh.SSHServer):
     def connection_made(self, conn):
@@ -46,10 +45,6 @@ class MySSHServer(asyncssh.SSHServer):
         pw = passwords.get(username, '*')
         return crypt.crypt(password, pw) == pw
 
-    async def run_client(self):
-        async with asyncssh.connect('174.138.12.81', username='andykw', client_keys=['resources/priv_keys']) as conn:
-            result = await conn.run('ls .', check=True)
-            print(result.stdout, end='')
 
 
 async def start_server():
