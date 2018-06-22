@@ -4,7 +4,7 @@ try:
     s = pxssh.pxssh()
     hostname = '192.168.43.163'
     username = 'miaou'
-    password = 'Zaerty01'
+    password = 'aaa'
     s.login(hostname, username, password)
     s.sendline('uptime')   # run a command
     s.prompt()             # match the prompt
