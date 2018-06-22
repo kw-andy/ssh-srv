@@ -1,3 +1,6 @@
+# this script is used as a test to connect and run command lines 
+# a remote server
+
 from pexpect import pxssh
 import getpass
 try:
