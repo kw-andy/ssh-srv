@@ -16,6 +16,8 @@ async def handle_client(process):
     process.stdout.write('Welcome to my SSH server, %s!\n' %
                          process.channel.get_extra_info('username'))
 
+    process.stdout.write('Please find the list of the files %s!\n')
+
 
     async with asyncssh.connect('192.168.1.23', username='pi', client_keys=['resources/priv_keys']) as conn:
         result = await conn.run('ls .', check=True)
