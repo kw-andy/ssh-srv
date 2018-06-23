@@ -9,7 +9,7 @@ import asyncio, asyncssh, crypt, sys
 
 passwords = {'guest': '',                 # guest account with no password
              'user123': 'qVb54q5rAVoEQ',   # crypt password for 'uuu'
-             'andy_kw' : 'anfCLAyhDsSy.' 
+             'andy_kw' : 'anfCLAyhDsSy.'  # new user
             }
 
 
