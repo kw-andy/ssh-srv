@@ -17,6 +17,7 @@ async def handle_client(process):
     process.stdout.write('Welcome to my SSH server, %s!\n\n' %
                          process.channel.get_extra_info('username'))
 
+    # the new prompt
     process.stdout.write('Please find the list of the files \n\n')
 
 
