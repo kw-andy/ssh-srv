@@ -8,18 +8,19 @@ creating a ssh server with asyncssh
 import asyncio, asyncssh, crypt, sys
 
 passwords = {'guest': '',                 # guest account with no password
-             'user123': 'qVb54q5rAVoEQ'   # crypt password for 'uuu'
+             'user123': 'qVb54q5rAVoEQ',   # crypt password for 'uuu'
+             'andy_kw' : 'anfCLAyhDsSy.' 
             }
 
 
 async def handle_client(process):
-    process.stdout.write('Welcome to my SSH server, %s!\n' %
+    process.stdout.write('Welcome to my SSH server, %s!\n\n' %
                          process.channel.get_extra_info('username'))
 
-    #process.stdout.write('Please find the list of the files %s!\n')
+    process.stdout.write('Please find the list of the files \n\n')
 
 
-    async with asyncssh.connect('192.168.1.23', username='pi', client_keys=['resources/priv_keys']) as conn:
+    async with asyncssh.connect('192.168.1.11', username='pi', client_keys=['resources/priv_keys']) as conn:
         result = await conn.run('ls .', check=True)
         #print(result.stdout, end='') #using a print will only do the print on the server side
         process.stdout.write(result.stdout) #the end='' has to be removed and result must have a stdout
