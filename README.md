@@ -5,15 +5,11 @@ I'm using [asyncssh](http://asyncssh.readthedocs.io/en/latest/) lib to build a s
 * ssh_srv.py is the prototype
 
 
-# Also creating [bastion host](https://cloudacademy.com/blog/aws-bastion-host-nat-instances-vpc-peering-security/) admin tools
+# Also creating some admin tools with the pexpect library that can be found on the folder, **pexpect scripting**
 
 
-* ssh-rev1.py has been used to familiarize with the pexpect library
+* cmd_ssh.py has been used to familiarize with the pexpect library : is used as a test to connect and run command lines on a distant server 
 
-* rev2 file was to try several commands
+* conn.py is two methods that I want to build as a library
 
-* rev3 is to use a RSA key to connect to a distant server
-
-* ag is for an interactive session with ssh. It can used any tools that are interactive lile with ftp or sftp
-
-## The aim is to build a bastion host with prerecorded settings (WIP)
+## WIP
