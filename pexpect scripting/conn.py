@@ -41,8 +41,3 @@ if __name__ == '__main__':
     uptime_conn()
     cre_file_conn()        
         
-
-if __name__ == '__main__':
-    conn_up()
-    conn_wr()
-
