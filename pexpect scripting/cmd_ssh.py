@@ -1,5 +1,9 @@
+"""
+# 17/06/18
 # this script is used as a test to connect and run command lines 
 # a remote server
+# this is a first attempt with pexpect
+"""
 
 from pexpect import pxssh
 import getpass
