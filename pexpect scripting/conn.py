@@ -1,7 +1,9 @@
 """
 27/06/18:
 
-The aim of the code is to generalize some of the function to build a library.
+The aim of the code is to generalize the methods written here, to build a library.
+For info, you will need to set a public key on your remote server and use your private
+key, to connect and run the methods below.
 
 """
 
