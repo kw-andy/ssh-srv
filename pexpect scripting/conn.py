@@ -1,15 +1,21 @@
+"""
+27/06/18:
+
+The aim of the code is to generalize the methods written here, to build a library.
+For info, you will need to set a public key on your remote server and use your private
+key, to connect and run the methods below.
+
+"""
+
 from pexpect import pxssh
 import pexpect
-#import getpass
 
-# conn_up is a function for connecting to a remote server and doing an uptime.
+# uptime_conn is a function that does a connect to remote server and run an uptime
 
-def conn_up():
+def uptime_conn(ip_addr,username,priv_keys):
     try:
         s = pxssh.pxssh()
-        hostname = '174.138.12.81'
-        username = 'andykw'
-        s.login(hostname, username,ssh_key='/home/miaou/priv_keys')
+        s.login(ip_addr, username,ssh_key=priv_keys)
         s.sendline('uptime')   # run a command
         s.prompt()             # match the prompt
         print(s.before.decode())        # print everything before the prompt.
@@ -17,24 +23,23 @@ def conn_up():
         print("pxssh failed on login.")
         print(e)
 
-# os.system('ssh-agent -s; ssh-add /home/miaou/priv_keys; ssh-agent bash')
 
-# conn_wr is a function for connecting to a remote server and create a file 123toto.txt
-# on the remote server
-# this method is for programs like sftp or ssh, which needs some human interactions
+# cre_file_conn is is a function that connects to a remote server and
+# create a file on the remote server
 
-def conn_wr():
-    child = pexpect.spawn('ssh pi@192.168.1.32')
-    child.expect('password:')
-    child.sendline('XXX')
-    child.expect('pi')
-    child.sendline('touch 123toto.txt')
-    child.expect('pi') 
-    child.sendline('exit')    
-        
-        
 
+def cre_file_conn(ip_addr,username,priv_keys):
+    try:
+        cmd = ("ssh -i {} {}{}{}").format(priv_keys,username,"@",ip_addr)
+        child = pexpect.spawn(cmd)
+        child.expect(username)
+        child.sendline('touch 123toto.txt')
+        child.expect(username) 
+        child.sendline('exit')
+    except Exception as e:
+        print(str(e))       
+  
 if __name__ == '__main__':
-    conn_up()
-    conn_wr()
-
+    uptime_conn()
+    cre_file_conn()        
+        
